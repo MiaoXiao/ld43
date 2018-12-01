@@ -36,13 +36,12 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < allItems.Count; ++i)
         {
-            /*
-            if (eggToRemove.eggID == allItems[i].eggVisual)
+            if (eggToRemove.eggId == allItems[i].eggVisual.eggId)
             {
-                itemSlotPooler.DeactivateObject()
+                itemSlotPooler.DeactivateObject(allItems[i].eggVisual.gameObject);
+                allItems.RemoveAt(i);
                 return;
             }
-            */
         }
     }
 

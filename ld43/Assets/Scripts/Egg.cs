@@ -6,7 +6,7 @@ public class Egg : MonoBehaviour {
 
     //Id used for server upload
     [SerializeField]
-    private int eggId;
+    public int eggId;
     //Size of egg
     [SerializeField]
     public int size;
