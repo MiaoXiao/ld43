@@ -2,7 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Input : MonoBehaviour {
+public class Egg : MonoBehaviour {
+
+    //Id used for server upload
+    [SerializeField]
+    private int eggId;
+    //Size of egg
+    [SerializeField]
+    public int size;
 
 	// Use this for initialization
 	void Start () {
