@@ -40,6 +40,9 @@ public class Inventory : MonoBehaviour
             {
                 itemSlotPooler.DeactivateObject(allItems[i].eggVisual.gameObject);
                 allItems.RemoveAt(i);
+                if (i == allItems.Count)
+                    GoNext();
+                MoveArrow(currentlySelected.transform);
                 return;
             }
         }
