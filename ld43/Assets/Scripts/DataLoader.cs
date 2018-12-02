@@ -27,17 +27,27 @@ public class DataLoader : MonoBehaviour {
     //data will hold the results of the SELECT command.
     public IEnumerator ReadFromDB () {
         WWW data = new WWW(url);
-        yield return data;
-        //print(data.text);
-        //Stores the results
-        results = data.text.Split(';');
-        Array.Resize(ref results, results.Length - 1);
-
-        foreach (string s in results)
+        //Checks for connection
+        if(data.error != null)
         {
-            print(s);
+            Debug.Log("No internet connection");
+            yield break;
         }
-        SortDescending();
+        else
+        {
+            yield return data;
+            //print(data.text);
+            //Stores the results
+            results = data.text.Split(';');
+            Array.Resize(ref results, results.Length - 1);
+
+            foreach (string s in results)
+            {
+                print(s);
+            }
+            SortDescending();
+        }
+        
 	}
     
     void SortDescending()

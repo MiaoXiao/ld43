@@ -39,16 +39,27 @@ public class Networking : MonoBehaviour {
     }
     IEnumerator DisplayResults()
     {
-        yield return GetAllStatisticsFromServerOrdered();
-        List<Statistic> d = Read();
-        values.text = "";
-        if (d.Count != 0)
+        WWW www = new WWW("http://google.com");
+        yield return www;
+        if (www.error != null)
         {
-            foreach (Statistic s in d)
+            
+            yield break;
+        }
+        else
+        {
+            yield return GetAllStatisticsFromServerOrdered();
+            List<Statistic> d = Read();
+            values.text = "";
+            if (d.Count != 0)
             {
-                values.text += s.key + ": " + s.value + "\n";
+                foreach (Statistic s in d)
+                {
+                    values.text += s.key + ": " + s.value + "\n";
+                }
             }
         }
+        
     }
 
 

@@ -20,6 +20,10 @@ public class DataInserter {
         ww.AddField("key", key);
         ww.AddField("value", value);
         WWW db = new WWW(url, ww);
+        if(db.error != null)
+        {
+            Debug.Log("Failed to Send");
+        }
         Debug.Log("Inserted " + key + "," + value);
     }
     public void SetUrl(string ur)
