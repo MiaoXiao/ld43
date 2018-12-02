@@ -30,9 +30,8 @@ public class Keyhole : MonoBehaviour {
     //Attempts to insert egg if it is big enough
     public bool InsertEgg(Egg egg)
     {
-        if(!eggInserted && maxSize >= egg.size)
+        if(!eggInserted && validateSize(egg))
         {
-            Debug.Log("Inserting egg!");
             currentEgg = egg;
             eggInserted = true;
             sourceDoor.ValidateDoor();
@@ -40,7 +39,6 @@ public class Keyhole : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Egg is too big!");
             return false;
         }
     }
@@ -50,6 +48,18 @@ public class Keyhole : MonoBehaviour {
         currentEgg = null;
         eggInserted = false;
         sourceDoor.ValidateDoor();
+    }
+
+    public bool validateSize(Egg egg)
+    {
+        if(maxSize >= egg.size)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }

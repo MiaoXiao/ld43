@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Egg : MonoBehaviour {
+public class Egg : MonoBehaviour
+{
 
     //Id used for server upload
     public int eggId;
@@ -28,7 +30,6 @@ public class Egg : MonoBehaviour {
         {
             transform.position = keyhole.transform.position;
             sourceKeyhole = keyhole;
-            Debug.Log("Egg is in keyhole!");
             return true;
         }
         return false;

@@ -39,7 +39,6 @@ public class Door : MonoBehaviour {
             {
                 if(!doorStatus)
                 {
-                    Debug.Log("One or more key not filled!");
                     return;
                 }
                 else //Handles case where door is already opened, but player takes out a key
