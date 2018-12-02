@@ -56,10 +56,21 @@ public class Inventory : MonoBehaviour
         GameObject eggCopy = Instantiate(egg.gameObject);
         eggCopy.gameObject.SetActive(true);
         eggCopy.transform.SetParent(item.transform, false);
-        eggCopy.layer = LayerMask.NameToLayer("Item");
+        RecursivelySetLayer(eggCopy.transform);
+        
         allItems.Add(inventoryItem);
 
         SelectNew(inventoryItem);
+    }
+
+    private void RecursivelySetLayer(Transform child)
+    {
+        for(int i = 0; i < child.childCount; ++i)
+        {
+            child.GetChild(i).gameObject.layer = LayerMask.NameToLayer("Item");
+            if (child.GetChild(i).childCount != 0)
+                RecursivelySetLayer(child.GetChild(i));
+        }
     }
 
     public void MoveArrow(Transform selected)
