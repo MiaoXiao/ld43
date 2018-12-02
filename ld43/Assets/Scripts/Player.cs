@@ -10,6 +10,10 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private Egg testEgg;
+    [SerializeField]
+    private Egg testEgg2;
+    [SerializeField]
+    private Egg testEgg3;
 
     public Transform raycastPoint;
     public Camera playerCamera;
@@ -22,6 +26,9 @@ public class Player : MonoBehaviour
         playerInventory.AddItem(testEgg);
         playerInventory.AddItem(testEgg);
         playerInventory.AddItem(testEgg);
+        playerInventory.AddItem(testEgg2);
+        playerInventory.AddItem(testEgg3);
+
     }
 
     private void Update()
