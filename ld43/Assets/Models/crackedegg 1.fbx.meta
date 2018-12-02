@@ -1,26 +1,23 @@
 fileFormatVersion: 2
-guid: 87901ce42f3f5664482a602bc824d5d0
+guid: 610bd8ef027dc784a84ac2a14e115ab4
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: group1
-    100004: pSphere3
-    100006: pSphere4
-    100008: pSphere4 1
-    100010: transform1
-    100012: transform2
+    100002: group2
+    100004: polySurface1
+    100006: polySurface2
     400000: //RootNode
-    400002: group1
-    400004: pSphere3
-    400006: pSphere4
-    400008: pSphere4 1
-    400010: transform1
-    400012: transform2
+    400002: group2
+    400004: polySurface1
+    400006: polySurface2
     2100000: lambert1
-    2300000: pSphere4
-    3300000: pSphere4
-    4300000: pSphere4
+    2300000: polySurface1
+    2300002: polySurface2
+    3300000: polySurface1
+    3300002: polySurface2
+    4300000: polySurface2
+    4300002: polySurface1
   externalObjects:
   - first:
       type: UnityEngine:Material
