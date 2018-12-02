@@ -43,7 +43,11 @@ public class Keyhole : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        checkInput(other.GetComponent<Egg>());
+        if(other.GetComponent<Egg>() != null)
+        {
+            //other.GetComponent<Egg>().placeInKeyHole(this);
+            checkInput(other.GetComponent<Egg>());
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -52,6 +56,7 @@ public class Keyhole : MonoBehaviour {
         {
             correctInsertedEgg = false;
             sourceDoor.ValidateDoor();
+            other.GetComponent<Egg>().inKeyHole = false;
             Debug.Log("Egg exited! " + correctInsertedEgg);
         }
     }

@@ -368,12 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInventory: {fileID: 0}
-  testEgg: {fileID: 0}
-  testEgg2: {fileID: 0}
-  testEgg3: {fileID: 0}
-  raycastPoint: {fileID: 0}
-  playerCamera: {fileID: 0}
-  range: 0
+  range: 10
 --- !u!124 &124418593613574162
 Behaviour:
   m_ObjectHideFlags: 1

@@ -11,7 +11,18 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
 
     public bool HasEgg { get { return eggVisual != null; } }
 
-    public Egg eggVisual { get { return transform.GetChild(0).GetComponent<Egg>(); } }
+    public Egg eggVisual
+    {
+        get
+        {
+            if(transform.childCount == 0)
+            {
+                return null;
+            }
+            return transform.GetChild(0).GetComponent<Egg>();
+        }
+    }
+
 
     private Inventory inventory { get { return GetComponentInParent<Inventory>(); } }
     public GameObject inFrontOfPlayerObj;

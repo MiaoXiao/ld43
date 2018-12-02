@@ -9,6 +9,9 @@ public class Inventory : MonoBehaviour
     private float holdDistance = 5f;
 
     [SerializeField]
+    private float holdVerticalOffset = 0.25f;
+
+    [SerializeField]
     private GameObject inventoryContents;
 
     public GameObject selectedArrow;
@@ -45,6 +48,8 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(Egg egg)
     {
+        egg.gameObject.GetComponent<Collider>().enabled = false;
+
         GameObject item = itemSlotPooler.RetrieveCopy();
         InventoryItem inventoryItem = item.GetComponent<InventoryItem>();
         inventoryItem.inFrontOfPlayerObj = egg.gameObject;
@@ -53,6 +58,8 @@ public class Inventory : MonoBehaviour
         eggCopy.transform.SetParent(item.transform, false);
         eggCopy.layer = LayerMask.NameToLayer("Item");
         allItems.Add(inventoryItem);
+
+        SelectNew(inventoryItem);
     }
 
     public void MoveArrow(Transform selected)
@@ -68,6 +75,8 @@ public class Inventory : MonoBehaviour
         {
             if (eggToRemove.eggId == allItems[i].eggVisual.eggId)
             {
+                eggToRemove.GetComponent<Collider>().enabled = true;
+
                 itemSlotPooler.DeactivateObject(allItems[i].eggVisual.gameObject);
                 allItems.RemoveAt(i);
                 if (i == allItems.Count)
@@ -131,8 +140,9 @@ public class Inventory : MonoBehaviour
     private void MoveObjectInFrontOfPlayer(GameObject mesh)
     {
         mesh.gameObject.SetActive(true);
-        Vector3 destination = playerGameobj.transform.position + (playerGameobj.transform.forward * holdDistance);
+        Vector3 cameraForward = Camera.main.transform.forward + (Vector3.down *holdVerticalOffset);
+        Vector3 destination = Camera.main.transform.position + (cameraForward * holdDistance);
         mesh.transform.position = destination;
-        mesh.transform.rotation = Quaternion.LookRotation(mesh.transform.position - playerGameobj.transform.position);
+        mesh.transform.rotation = Quaternion.LookRotation(mesh.transform.position - cameraForward);
     }
 }
