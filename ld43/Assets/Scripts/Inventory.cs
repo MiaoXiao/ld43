@@ -9,6 +9,9 @@ public class Inventory : MonoBehaviour
     private float holdDistance = 5f;
 
     [SerializeField]
+    private float holdVerticalOffset = 0.25f;
+
+    [SerializeField]
     private GameObject inventoryContents;
 
     public GameObject selectedArrow;
@@ -131,8 +134,9 @@ public class Inventory : MonoBehaviour
     private void MoveObjectInFrontOfPlayer(GameObject mesh)
     {
         mesh.gameObject.SetActive(true);
-        Vector3 destination = playerGameobj.transform.position + (playerGameobj.transform.forward * holdDistance);
+        Vector3 cameraForward = Camera.main.transform.forward + (Vector3.down * .25f);
+        Vector3 destination = Camera.main.transform.position + (cameraForward * holdDistance);
         mesh.transform.position = destination;
-        mesh.transform.rotation = Quaternion.LookRotation(mesh.transform.position - playerGameobj.transform.position);
+        mesh.transform.rotation = Quaternion.LookRotation(mesh.transform.position - cameraForward);
     }
 }
