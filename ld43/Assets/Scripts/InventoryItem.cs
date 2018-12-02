@@ -5,7 +5,9 @@ using UnityEngine.EventSystems;
 
 public class InventoryItem : MonoBehaviour, IPointerDownHandler
 {
-    private float itemDistance = .25f;
+    private float itemDistance = 0.5f;
+
+    private float newScale = 5f;
 
     public bool HasEgg { get { return eggVisual != null; } }
 
@@ -14,19 +16,22 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
     private Inventory inventory { get { return GetComponentInParent<Inventory>(); } }
 
     private Camera itemsCamera;
+    private Camera inventoryUICamera;
 
     private void Awake()
     {
         itemsCamera = GameObject.FindGameObjectWithTag("ItemsCamera").GetComponent<Camera>();
+        inventoryUICamera = GameObject.FindGameObjectWithTag("InventoryUICamera").GetComponent<Camera>();
     }
 
     private void Update()
     {
         if (HasEgg)
         {
-            Vector3 screenPos = transform.position;
-            screenPos.z = itemDistance;
-            eggVisual.transform.position = itemsCamera.WorldToScreenPoint(screenPos);
+            eggVisual.transform.localScale = new Vector3(newScale, newScale, newScale);
+            Vector3 inventoryPos = inventoryUICamera.WorldToScreenPoint(transform.position);
+            inventoryPos.z = itemDistance;
+            eggVisual.transform.position = itemsCamera.ScreenToWorldPoint(inventoryPos);
         }
     }
 
