@@ -123,6 +123,8 @@ public class Inventory : MonoBehaviour
     private void MoveObjectInFrontOfPlayer(GameObject mesh)
     {
         mesh.gameObject.SetActive(true);
-        mesh.transform.position = playerGameobj.transform.position + (playerGameobj.transform.forward * holdDistance);
+        Vector3 destination = playerGameobj.transform.position + (playerGameobj.transform.forward * holdDistance);
+        mesh.transform.position = destination;
+        mesh.transform.rotation = Quaternion.LookRotation(mesh.transform.position - playerGameobj.transform.position);
     }
 }
