@@ -14,6 +14,7 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
     public Egg eggVisual { get { return transform.GetChild(0).GetComponent<Egg>(); } }
 
     private Inventory inventory { get { return GetComponentInParent<Inventory>(); } }
+    public GameObject inFrontOfPlayerObj;
 
     private Camera itemsCamera;
     private Camera inventoryUICamera;

@@ -6,6 +6,9 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class Inventory : MonoBehaviour
 {
     [SerializeField]
+    private float holdDistance = 5f;
+
+    [SerializeField]
     private GameObject inventoryContents;
 
     public GameObject selectedArrow;
@@ -17,14 +20,31 @@ public class Inventory : MonoBehaviour
     private int currentIndex = 0;
     public InventoryItem currentlySelected { get { return allItems[currentIndex]; } }
 
+    private GameObject playerGameobj;
+
+    private void Awake()
+    {
+        playerGameobj = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private void Update()
+    {
+        if (currentlySelected != null)
+        {
+            MoveObjectInFrontOfPlayer(currentlySelected.inFrontOfPlayerObj);
+        }
+    }
+
     public void AddItem(Egg egg)
     {
-        MoveObjectInFrontOfPlayer(egg.gameObject);
         GameObject item = itemSlotPooler.RetrieveCopy();
+        InventoryItem inventoryItem = item.GetComponent<InventoryItem>();
+        inventoryItem.inFrontOfPlayerObj = egg.gameObject;
         GameObject eggCopy = Instantiate(egg.gameObject);
+        eggCopy.gameObject.SetActive(true);
         eggCopy.transform.SetParent(item.transform, false);
         eggCopy.layer = LayerMask.NameToLayer("Item");
-        allItems.Add(item.GetComponent<InventoryItem>());
+        allItems.Add(inventoryItem);
     }
 
     public void MoveArrow(Transform selected)
@@ -94,6 +114,7 @@ public class Inventory : MonoBehaviour
         {
             if (item == allItems[i])
             {
+                currentlySelected.inFrontOfPlayerObj.gameObject.SetActive(false);
                 currentIndex = i;
             }
         }
@@ -101,7 +122,7 @@ public class Inventory : MonoBehaviour
 
     private void MoveObjectInFrontOfPlayer(GameObject mesh)
     {
-        GameObject player = GameObject.FindGameObjectWithTag("MainCamera");
-        mesh.transform.position = player.transform.forward * 40;
+        mesh.gameObject.SetActive(true);
+        mesh.transform.position = playerGameobj.transform.position + (playerGameobj.transform.forward * holdDistance);
     }
 }

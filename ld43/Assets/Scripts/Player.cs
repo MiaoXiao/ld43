@@ -10,10 +10,16 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private Egg testEgg;
+    [SerializeField]
+    private Egg testEgg2;
+    [SerializeField]
+    private Egg testEgg3;
 
     private void Awake()
     {
         playerInventory.AddItem(testEgg);
+        playerInventory.AddItem(testEgg2);
+        playerInventory.AddItem(testEgg3);
     }
 
     private void Update()
