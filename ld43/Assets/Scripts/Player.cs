@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private Camera playerCamera;
     private Vector3 rayOrigin;
     public int range;
-
+    private int layerMask = ~(1 << 10); //Avoid player layer
     private void Awake()
     {
         playerCamera = Camera.main;
@@ -27,9 +27,10 @@ public class Player : MonoBehaviour
         {
             rayOrigin = playerCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
             RaycastHit hit;
-            if (Physics.Raycast(rayOrigin, playerCamera.transform.forward, out hit, range))
+            if (Physics.Raycast(rayOrigin, playerCamera.transform.forward, out hit, range, layerMask))
             {
                 GameObject hitObject = hit.transform.gameObject;
+                Debug.Log(hitObject.name);
                 if (hitObject.tag == "Egg")
                 {
                     if (hitObject.GetComponent<Egg>().sourceKeyhole)
@@ -43,6 +44,11 @@ public class Player : MonoBehaviour
                     Debug.Log(playerInventory.currentlySelected.inFrontOfPlayerObj.GetComponent<Egg>());
                     playerInventory.currentlySelected.inFrontOfPlayerObj.GetComponent<Egg>().placeInKeyHole(hitObject.GetComponent<Keyhole>());
                     playerInventory.RemoveItem(playerInventory.currentlySelected.inFrontOfPlayerObj.GetComponent<Egg>());
+                }
+                else
+                {
+                    Debug.DrawRay(rayOrigin, playerCamera.transform.forward * hit.distance, Color.blue);
+                    Debug.Log("Hit something that's not relevant..");
                 }
             }
             else
