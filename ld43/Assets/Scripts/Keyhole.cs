@@ -10,7 +10,6 @@ public class Keyhole : MonoBehaviour {
     private int maxSize;
     [SerializeField]
     private Door sourceDoor;
-    private Egg currentEgg; 
     public bool eggInserted = false;
 
 	// Use this for initialization
@@ -32,7 +31,6 @@ public class Keyhole : MonoBehaviour {
     {
         if(!eggInserted && validateSize(egg))
         {
-            currentEgg = egg;
             eggInserted = true;
             sourceDoor.ValidateDoor();
             return true;
@@ -45,7 +43,6 @@ public class Keyhole : MonoBehaviour {
 
     public void RemoveEgg()
     {
-        currentEgg = null;
         eggInserted = false;
         sourceDoor.ValidateDoor();
     }
