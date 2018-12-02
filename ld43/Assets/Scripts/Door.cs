@@ -34,14 +34,15 @@ public class Door : MonoBehaviour {
     {
         foreach (Keyhole keyhole in keyholes)
         {
-            if (!keyhole.correctInsertedEgg)
+            //At least one keyhole does not have an egg inserted
+            if (!keyhole.eggInserted)
             {
                 if(!doorStatus)
                 {
                     Debug.Log("One or more key not filled!");
                     return;
                 }
-                else
+                else //Handles case where door is already opened, but player takes out a key
                 {
                     doorStatus = false;
                     Close();
@@ -49,6 +50,7 @@ public class Door : MonoBehaviour {
                 }
             }
         }
+        //All eggs have been inserted and are correct
         doorStatus = true;
         Open();
         return;
@@ -56,7 +58,6 @@ public class Door : MonoBehaviour {
 
     public void Open()
     {
-        Debug.Log("Opening Door!");
         foreach (SlidingObject door in doors)
         {
             door.OpenDoor();
@@ -65,7 +66,6 @@ public class Door : MonoBehaviour {
 
     public void Close()
     {
-        Debug.Log("Closing Door!");
         foreach (SlidingObject door in doors)
         {
             door.CloseDoor();

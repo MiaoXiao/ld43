@@ -21,11 +21,17 @@ public class Egg : MonoBehaviour {
 		
 	}
 
-    public void placeInKeyHole(Keyhole keyhole)
+    public bool placeInKeyHole(Keyhole keyhole)
     {
-        transform.position = keyhole.transform.position;
-        keyhole.InsertEgg(this);
-        sourceKeyhole = keyhole;
+        //If egg can fit into keyhole, it will teleport onto it.
+        if(keyhole.InsertEgg(this))
+        {
+            transform.position = keyhole.transform.position;
+            sourceKeyhole = keyhole;
+            Debug.Log("Egg is in keyhole!");
+            return true;
+        }
+        return false;
     }
 
     public void removeFromKeyHole()

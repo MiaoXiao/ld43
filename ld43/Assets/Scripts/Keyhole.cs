@@ -8,8 +8,6 @@ public class Keyhole : MonoBehaviour {
     //Minimum size needed to fit in input
     [SerializeField]
     private int maxSize;
-    //Check if input has the correct egg inside of it
-    public bool correctInsertedEgg = false;
     [SerializeField]
     private Door sourceDoor;
     private Egg currentEgg; 
@@ -29,37 +27,29 @@ public class Keyhole : MonoBehaviour {
 		
 	}
 
-    public void checkInput(Egg egg)
+    //Attempts to insert egg if it is big enough
+    public bool InsertEgg(Egg egg)
     {
-        if(maxSize >= egg.size)
+        if(!eggInserted && maxSize >= egg.size)
         {
-            correctInsertedEgg = true;
+            Debug.Log("Inserting egg!");
+            currentEgg = egg;
+            eggInserted = true;
             sourceDoor.ValidateDoor();
+            return true;
         }
         else
         {
-            correctInsertedEgg = false;
-        }
-        Debug.Log("Input Filled: " + correctInsertedEgg);
-    }
-
-    public void InsertEgg(Egg egg)
-    {
-        if(!eggInserted)
-        {
-            checkInput(egg);
-            currentEgg = egg;
-            eggInserted = true;
+            Debug.Log("Egg is too big!");
+            return false;
         }
     }
 
     public void RemoveEgg()
     {
-        correctInsertedEgg = false;
         currentEgg = null;
         eggInserted = false;
         sourceDoor.ValidateDoor();
-        Debug.Log("Egg exited! " + correctInsertedEgg);
     }
 
 }
