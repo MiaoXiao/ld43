@@ -8,23 +8,12 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Inventory playerInventory;
 
-    [SerializeField]
-    private Egg testEgg;
-    [SerializeField]
-    private Egg testEgg2;
-    [SerializeField]
-    private Egg testEgg3;
-
-    public Transform raycastPoint;
     public Camera playerCamera;
     private Vector3 rayOrigin;
     public int range;
 
     private void Awake()
     {
-        playerInventory.AddItem(testEgg);
-        playerInventory.AddItem(testEgg2);
-        playerInventory.AddItem(testEgg3);
     }
 
     private void Update()
@@ -39,15 +28,22 @@ public class Player : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(rayOrigin, playerCamera.transform.forward, out hit, range))
             {
-                if(hit.transform.gameObject.tag == "Egg")
+                if (hit.transform.gameObject.tag == "Egg")
                 {
-                    Debug.DrawRay(rayOrigin, transform.TransformDirection(Vector3.forward) * hit.distance, Color.white);
+                    playerInventory.AddItem(hit.transform.gameObject.GetComponent<Egg>());
+                    Debug.DrawRay(rayOrigin, playerCamera.transform.forward * hit.distance, Color.white);
                     Debug.Log("Hit!");
+                }
+                else if (hit.transform.gameObject.tag == "Keyhole" && playerInventory.currentlySelected != null)
+                {
+                    Debug.Log(playerInventory.currentlySelected.inFrontOfPlayerObj.GetComponent<Egg>());
+                    playerInventory.currentlySelected.inFrontOfPlayerObj.GetComponent<Egg>().placeInKeyHole(hit.transform.gameObject.GetComponent<Keyhole>());
+                    playerInventory.RemoveItem(playerInventory.currentlySelected.inFrontOfPlayerObj.GetComponent<Egg>());
                 }
             }
             else
             {
-                Debug.DrawRay(rayOrigin, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
+                Debug.DrawRay(rayOrigin, playerCamera.transform.forward * 1000, Color.red);
                 Debug.Log("Missed..");
             }
         }

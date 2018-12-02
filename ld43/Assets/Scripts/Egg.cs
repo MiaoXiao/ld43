@@ -11,6 +11,8 @@ public class Egg : MonoBehaviour {
     [SerializeField]
     public int size;
 
+    public bool inKeyHole = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -20,4 +22,9 @@ public class Egg : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void placeInKeyHole(Keyhole keyhole)
+    {
+        transform.position = keyhole.transform.position;
+    }
 }

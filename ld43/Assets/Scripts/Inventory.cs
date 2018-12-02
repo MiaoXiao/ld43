@@ -71,11 +71,13 @@ public class Inventory : MonoBehaviour
         {
             if (eggToRemove.eggId == allItems[i].eggVisual.eggId)
             {
-                itemSlotPooler.DeactivateObject(allItems[i].eggVisual.gameObject);
+                itemSlotPooler.DeactivateObject(allItems[i].gameObject);
+                Destroy(allItems[i].eggVisual.gameObject);
                 allItems.RemoveAt(i);
                 if (i == allItems.Count)
                     GoNext();
-                MoveArrow(currentlySelected.transform);
+                if(allItems.Count != 0)
+                    MoveArrow(currentlySelected.transform);
                 return;
             }
         }
