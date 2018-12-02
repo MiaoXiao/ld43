@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 114689698514283358}
   m_Layer: 0
   m_Name: Player
-  m_TagString: MainCamera
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,7 +104,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 311
+    m_Bits: 1335
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -368,7 +368,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInventory: {fileID: 0}
-  testEgg: {fileID: 114568507193292470, guid: 34dfcbdacc365dc4c8502b64c5a96add, type: 2}
+  testEgg: {fileID: 0}
+  testEgg2: {fileID: 0}
+  testEgg3: {fileID: 0}
+  raycastPoint: {fileID: 0}
+  playerCamera: {fileID: 0}
+  range: 0
 --- !u!124 &124418593613574162
 Behaviour:
   m_ObjectHideFlags: 1

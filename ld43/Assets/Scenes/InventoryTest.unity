@@ -718,15 +718,6 @@ Prefab:
       propertyPath: testEgg
       value: 
       objectReference: {fileID: 885887542}
-    - target: {fileID: 1789687892033054, guid: bb2994a40db158d4ba38e58acee48d92, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 20885726046768048, guid: bb2994a40db158d4ba38e58acee48d92,
-        type: 2}
-      propertyPath: m_CullingMask.m_Bits
-      value: 1335
-      objectReference: {fileID: 0}
     - target: {fileID: 114689698514283358, guid: bb2994a40db158d4ba38e58acee48d92,
         type: 2}
       propertyPath: testEgg2
