@@ -7,7 +7,7 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
 {
     private float itemDistance = 0.5f;
 
-    private float newScale = 5f;
+    private float newScale = 250f;
 
     public bool HasEgg { get { return eggVisual != null; } }
 
