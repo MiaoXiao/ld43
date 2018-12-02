@@ -18,7 +18,15 @@ public class Inventory : MonoBehaviour
 
     private List<InventoryItem> allItems = new List<InventoryItem>();
     private int currentIndex = 0;
-    public InventoryItem currentlySelected { get { return allItems[currentIndex]; } }
+    public InventoryItem currentlySelected
+    {
+        get
+        {
+            if (currentIndex >= allItems.Count)
+                return null;
+            return allItems[currentIndex];
+        }
+    }
 
     private GameObject playerGameobj;
 
@@ -74,7 +82,7 @@ public class Inventory : MonoBehaviour
     {
         bool status = !inventoryContents.activeInHierarchy;
         inventoryContents.SetActive(status);
-        if (status)
+        if (status && currentlySelected)
         {
             StartCoroutine(WaitOneFrame());
         }

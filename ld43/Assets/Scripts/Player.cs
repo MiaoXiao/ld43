@@ -22,12 +22,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        playerInventory.AddItem(testEgg);
-        playerInventory.AddItem(testEgg);
-        playerInventory.AddItem(testEgg);
-        playerInventory.AddItem(testEgg);
-        playerInventory.AddItem(testEgg2);
-        playerInventory.AddItem(testEgg3);
+
 
     }
 
