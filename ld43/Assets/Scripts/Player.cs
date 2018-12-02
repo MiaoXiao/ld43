@@ -48,5 +48,9 @@ public class Player : MonoBehaviour
                 Debug.Log("Missed..");
             }
         }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().ToggleQuitMenu();
+        }
 	}
 }
