@@ -156,6 +156,11 @@ Prefab:
       propertyPath: m_Name
       value: Large Egg (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 54191842296229172, guid: f9ef828c17dddad4bb58bbcd1db5baac,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9ef828c17dddad4bb58bbcd1db5baac, type: 2}
   m_IsPrefabAsset: 0
@@ -414,16 +419,6 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1471173479}
-    - target: {fileID: 114790823176332920, guid: a9fcd87ab5323ba4691213d866ac65a1,
-        type: 2}
-      propertyPath: holdDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114790823176332920, guid: a9fcd87ab5323ba4691213d866ac65a1,
-        type: 2}
-      propertyPath: holdVerticalOffset
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9fcd87ab5323ba4691213d866ac65a1, type: 2}
   m_IsPrefabAsset: 0
@@ -603,6 +598,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 54383127283250804, guid: 34dfcbdacc365dc4c8502b64c5a96add,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34dfcbdacc365dc4c8502b64c5a96add, type: 2}
   m_IsPrefabAsset: 0
@@ -644,6 +644,11 @@ Prefab:
     - target: {fileID: 4734234960387328, guid: 34d0f0b6564f5ba4e89d5e545f972099, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 54876877366625880, guid: 34d0f0b6564f5ba4e89d5e545f972099,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34d0f0b6564f5ba4e89d5e545f972099, type: 2}
