@@ -29,22 +29,25 @@ public class Player : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(rayOrigin, playerCamera.transform.forward, out hit, range))
             {
-                if (hit.transform.gameObject.tag == "Egg")
+                GameObject hitObject = hit.transform.gameObject;
+                if (hitObject.tag == "Egg")
                 {
-                    playerInventory.AddItem(hit.transform.gameObject.GetComponent<Egg>());
-                    Debug.DrawRay(rayOrigin, playerCamera.transform.forward * hit.distance, Color.white);
+                    if (hitObject.GetComponent<Egg>().sourceKeyhole)
+                        hitObject.GetComponent<Egg>().removeFromKeyHole();
+                    playerInventory.AddItem(hitObject.GetComponent<Egg>());
+                    //Debug.DrawRay(rayOrigin, playerCamera.transform.forward * hit.distance, Color.white);
                     Debug.Log("Hit!");
                 }
-                else if (hit.transform.gameObject.tag == "Keyhole" && playerInventory.currentlySelected != null)
+                else if (hitObject.tag == "Keyhole" && playerInventory.currentlySelected != null && !hitObject.GetComponent<Keyhole>().eggInserted)
                 {
                     Debug.Log(playerInventory.currentlySelected.inFrontOfPlayerObj.GetComponent<Egg>());
-                    playerInventory.currentlySelected.inFrontOfPlayerObj.GetComponent<Egg>().placeInKeyHole(hit.transform.gameObject.GetComponent<Keyhole>());
+                    playerInventory.currentlySelected.inFrontOfPlayerObj.GetComponent<Egg>().placeInKeyHole(hitObject.GetComponent<Keyhole>());
                     playerInventory.RemoveItem(playerInventory.currentlySelected.inFrontOfPlayerObj.GetComponent<Egg>());
                 }
             }
             else
             {
-                Debug.DrawRay(rayOrigin, playerCamera.transform.forward * 1000, Color.red);
+                //Debug.DrawRay(rayOrigin, playerCamera.transform.forward * 1000, Color.red);
                 Debug.Log("Missed..");
             }
         }

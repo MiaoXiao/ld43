@@ -81,7 +81,8 @@ public class Inventory : MonoBehaviour
                 allItems.RemoveAt(i);
                 if (i == allItems.Count)
                     GoNext();
-                MoveArrow(currentlySelected.transform);
+                if (allItems.Count != 0)
+                    MoveArrow(currentlySelected.transform);
                 return;
             }
         }

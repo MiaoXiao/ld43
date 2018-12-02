@@ -8,6 +8,7 @@ TagManager:
   - ItemsCamera
   - InventoryUICamera
   - Egg
+  - Keyhole
   layers:
   - Default
   - TransparentFX

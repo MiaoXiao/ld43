@@ -12,6 +12,8 @@ public class Keyhole : MonoBehaviour {
     public bool correctInsertedEgg = false;
     [SerializeField]
     private Door sourceDoor;
+    private Egg currentEgg; 
+    public bool eggInserted = false;
 
 	// Use this for initialization
 	void Start () {
@@ -41,24 +43,23 @@ public class Keyhole : MonoBehaviour {
         Debug.Log("Input Filled: " + correctInsertedEgg);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void InsertEgg(Egg egg)
     {
-        if(other.GetComponent<Egg>() != null)
+        if(!eggInserted)
         {
-            //other.GetComponent<Egg>().placeInKeyHole(this);
-            checkInput(other.GetComponent<Egg>());
+            checkInput(egg);
+            currentEgg = egg;
+            eggInserted = true;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void RemoveEgg()
     {
-        if (other.GetComponent<Egg>() != null)
-        {
-            correctInsertedEgg = false;
-            sourceDoor.ValidateDoor();
-            other.GetComponent<Egg>().inKeyHole = false;
-            Debug.Log("Egg exited! " + correctInsertedEgg);
-        }
+        correctInsertedEgg = false;
+        currentEgg = null;
+        eggInserted = false;
+        sourceDoor.ValidateDoor();
+        Debug.Log("Egg exited! " + correctInsertedEgg);
     }
 
 }

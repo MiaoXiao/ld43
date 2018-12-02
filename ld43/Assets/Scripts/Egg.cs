@@ -5,13 +5,11 @@ using UnityEngine;
 public class Egg : MonoBehaviour {
 
     //Id used for server upload
-    [SerializeField]
     public int eggId;
     //Size of egg
-    [SerializeField]
     public int size;
 
-    public bool inKeyHole = false;
+    public Keyhole sourceKeyhole;
 
 	// Use this for initialization
 	void Start () {
@@ -26,5 +24,13 @@ public class Egg : MonoBehaviour {
     public void placeInKeyHole(Keyhole keyhole)
     {
         transform.position = keyhole.transform.position;
+        keyhole.InsertEgg(this);
+        sourceKeyhole = keyhole;
+    }
+
+    public void removeFromKeyHole()
+    {
+        sourceKeyhole.RemoveEgg();
+        sourceKeyhole = null;
     }
 }
