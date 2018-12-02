@@ -157,6 +157,7 @@ public class Inventory : MonoBehaviour
         Vector3 cameraForward = Camera.main.transform.forward + (Vector3.down *holdVerticalOffset);
         Vector3 destination = Camera.main.transform.position + (cameraForward * holdDistance);
         mesh.transform.position = destination;
-        mesh.transform.rotation = Quaternion.LookRotation(mesh.transform.position - cameraForward);
+        mesh.transform.LookAt(Camera.main.transform, Vector3.up);
+        mesh.transform.Rotate(new Vector3(0, 180, 0));
     }
 }
