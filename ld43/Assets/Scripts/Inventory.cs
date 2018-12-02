@@ -88,7 +88,7 @@ public class Inventory : MonoBehaviour
             if (eggToRemove.eggId == allItems[i].eggVisual.eggId)
             {
                 eggToRemove.GetComponent<Collider>().enabled = true;
-
+                Destroy(allItems[i].eggVisual.gameObject);
                 itemSlotPooler.DeactivateObject(allItems[i].gameObject);
                 eggToRemove.gameObject.SetActive(true);
                 allItems.RemoveAt(i);
