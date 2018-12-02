@@ -8,12 +8,13 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Inventory playerInventory;
 
-    public Camera playerCamera;
+    private Camera playerCamera;
     private Vector3 rayOrigin;
     public int range;
 
     private void Awake()
     {
+        playerCamera = Camera.main;
     }
 
     private void Update()
