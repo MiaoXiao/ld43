@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class Player : MonoBehaviour
 {
@@ -13,15 +14,17 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         playerInventory.AddItem(testEgg);
-        playerInventory.AddItem(testEgg);
-        playerInventory.AddItem(testEgg);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab)) //open inventory
         {
-            playerInventory.ToggleInventoryStatus();
+            playerInventory.ToggleInventoryStatus(GetComponent<FirstPersonController>());
+        }
+        else if (Input.GetKeyDown(KeyCode.E)) //interact
+        {
+
         }
 	}
 }

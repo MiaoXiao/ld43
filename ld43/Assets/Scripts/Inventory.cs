@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class Inventory : MonoBehaviour
 {
@@ -18,10 +19,11 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(Egg egg)
     {
+        MoveObjectInFrontOfPlayer(egg.gameObject);
         GameObject item = itemSlotPooler.RetrieveCopy();
         GameObject eggCopy = Instantiate(egg.gameObject);
         eggCopy.transform.SetParent(item.transform, false);
-
+        eggCopy.layer = LayerMask.NameToLayer("Item");
         allItems.Add(item.GetComponent<InventoryItem>());
     }
 
@@ -48,13 +50,15 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void ToggleInventoryStatus()
+    public void ToggleInventoryStatus(FirstPersonController controller)
     {
-        inventoryContents.SetActive(!inventoryContents.activeInHierarchy);
-        if (inventoryContents.activeInHierarchy)
+        bool status = !inventoryContents.activeInHierarchy;
+        inventoryContents.SetActive(status);
+        if (status)
         {
             StartCoroutine(WaitOneFrame());
         }
+        controller.enabled = !status;
     }
 
     private IEnumerator WaitOneFrame()
@@ -90,4 +94,9 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    private void MoveObjectInFrontOfPlayer(GameObject mesh)
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("MainCamera");
+        mesh.transform.position = player.transform.forward * 40;
+    }
 }

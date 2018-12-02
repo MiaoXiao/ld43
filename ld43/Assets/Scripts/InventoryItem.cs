@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class InventoryItem : MonoBehaviour, IPointerDownHandler
 {
-    private float itemDistance = 50f;
+    private float itemDistance = .25f;
 
     public bool HasEgg { get { return eggVisual != null; } }
 
@@ -13,13 +13,20 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
 
     private Inventory inventory { get { return GetComponentInParent<Inventory>(); } }
 
+    private Camera itemsCamera;
+
+    private void Awake()
+    {
+        itemsCamera = GameObject.FindGameObjectWithTag("ItemsCamera").GetComponent<Camera>();
+    }
+
     private void Update()
     {
         if (HasEgg)
         {
             Vector3 screenPos = transform.position;
             screenPos.z = itemDistance;
-            eggVisual.transform.position = Camera.main.ScreenToWorldPoint(screenPos);
+            eggVisual.transform.position = itemsCamera.WorldToScreenPoint(screenPos);
         }
     }
 
