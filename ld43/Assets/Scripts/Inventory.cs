@@ -65,7 +65,8 @@ public class Inventory : MonoBehaviour
 
     private void RecursivelySetLayer(Transform child)
     {
-        for(int i = 0; i < child.childCount; ++i)
+        child.gameObject.layer = LayerMask.NameToLayer("Item");
+        for (int i = 0; i < child.childCount; ++i)
         {
             child.GetChild(i).gameObject.layer = LayerMask.NameToLayer("Item");
             if (child.GetChild(i).childCount != 0)
@@ -88,9 +89,10 @@ public class Inventory : MonoBehaviour
             {
                 eggToRemove.GetComponent<Collider>().enabled = true;
 
-                itemSlotPooler.DeactivateObject(allItems[i].eggVisual.gameObject);
+                itemSlotPooler.DeactivateObject(allItems[i].gameObject);
+                eggToRemove.gameObject.SetActive(true);
                 allItems.RemoveAt(i);
-                if (i == allItems.Count)
+                if (currentIndex == allItems.Count)
                     GoNext();
                 if (allItems.Count != 0)
                     MoveArrow(currentlySelected.transform);
