@@ -59,6 +59,11 @@ public class Inventory : MonoBehaviour
             StartCoroutine(WaitOneFrame());
         }
         controller.enabled = !status;
+        Cursor.visible = status;
+        if (status)
+            Cursor.lockState = CursorLockMode.None;
+        else
+            Cursor.lockState = CursorLockMode.Locked;
     }
 
     private IEnumerator WaitOneFrame()
