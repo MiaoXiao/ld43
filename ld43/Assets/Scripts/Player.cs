@@ -114,4 +114,17 @@ public class Player : MonoBehaviour
             GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().ToggleQuitMenu();
         }
 	}
+
+    //Gets the egg id of the egg the player is currently holding.
+    public int GetCurrentEggId()
+    {
+        if (playerInventory.currentlySelected)
+        {
+            return playerInventory.currentlySelected.eggVisual.eggId;
+        }
+        else
+        {
+            return -1;
+        }
+    }
 }

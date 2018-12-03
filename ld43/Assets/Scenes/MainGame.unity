@@ -2132,7 +2132,17 @@ Prefab:
     - target: {fileID: 82003439029435124, guid: bb2994a40db158d4ba38e58acee48d92,
         type: 2}
       propertyPath: m_Volume
-      value: 0.3
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114217789704517482, guid: bb2994a40db158d4ba38e58acee48d92,
+        type: 2}
+      propertyPath: m_IsWalking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114217789704517482, guid: bb2994a40db158d4ba38e58acee48d92,
+        type: 2}
+      propertyPath: m_WalkSpeed
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb2994a40db158d4ba38e58acee48d92, type: 2}
