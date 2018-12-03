@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4430859463181160}
   - component: {fileID: 33370526884683424}
   - component: {fileID: 23741205380185720}
-  - component: {fileID: 65725800548209932}
+  - component: {fileID: 64075297750134290}
   m_Layer: 0
   m_Name: guardian
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1197045472166814}
   m_Mesh: {fileID: 4300000, guid: 7638a5a9804c73a4c850ca90466f1599, type: 3}
---- !u!65 &65725800548209932
-BoxCollider:
+--- !u!64 &64075297750134290
+MeshCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -93,6 +93,8 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.054366075, y: 0.11211477, z: 0.036183596}
-  m_Center: {x: 0.022183038, y: 0.051057383, z: 0.013091797}
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 7638a5a9804c73a4c850ca90466f1599, type: 3}

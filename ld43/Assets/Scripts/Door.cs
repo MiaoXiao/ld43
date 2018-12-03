@@ -57,6 +57,7 @@ public class Door : MonoBehaviour {
 
     public void Open()
     {
+        GameObject.Find("GameManager").GetComponent<SoundManager>().PlaySFX("door_open", 1.5f);
         foreach (SlidingObject door in doors)
         {
             door.OpenDoor();

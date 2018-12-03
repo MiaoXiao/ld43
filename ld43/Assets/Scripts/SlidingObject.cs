@@ -7,7 +7,7 @@ public class SlidingObject : MonoBehaviour {
     public Transform endPoint;
     private Vector3 startPos;
     private Vector3 endPos;
-    public float slideSpeed = 1.0f;
+    private float slideSpeed = .1f;
 
 	// Use this for initialization
 	void Start () {
