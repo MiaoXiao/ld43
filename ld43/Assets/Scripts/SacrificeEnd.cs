@@ -70,9 +70,8 @@ public class SacrificeEnd : MonoBehaviour
                 //Winged egg
                 saved = wingedEgg;
                 sacrificed1 = crackedEgg;
-                sacrificed2 = wingedEgg;
+                sacrificed2 = purpleEgg;
             }
-
 
             endMenu.gameObject.SetActive(true);
             if (saved)
