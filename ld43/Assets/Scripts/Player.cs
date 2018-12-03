@@ -15,9 +15,13 @@ public class Player : MonoBehaviour
     public int interactionRange;
     public int sightRange;
     private int layerMask = ~(1 << 10); //Avoid player layer
+
+    SoundManager soundManager;
+
     private void Awake()
     {
         playerCamera = Camera.main;
+        soundManager = GameObject.Find("GameManager").GetComponent<SoundManager>();
     }
 
     private void Update()
@@ -48,7 +52,7 @@ public class Player : MonoBehaviour
                         }
                         else if (playerInventory.currentlySelected.inFrontOfPlayerObj.GetComponent<Egg>().eggId == 2)
                         {
-                            interactionText.text = "Do it. I fucking dare you";
+                            interactionText.text = "Press E to deposit egg";
                         }
                     }
                     else
@@ -88,6 +92,10 @@ public class Player : MonoBehaviour
                         if (playerInventory.currentlySelected.inFrontOfPlayerObj.GetComponent<Egg>().placeInKeyHole(hitObject.GetComponent<Keyhole>()))
                         {
                             playerInventory.RemoveItem(playerInventory.currentlySelected.inFrontOfPlayerObj.GetComponent<Egg>());
+                        }
+                        else
+                        {
+                            soundManager.PlaySFX("wrong_size_sound");
                         }
                     }
                 }

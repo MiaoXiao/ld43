@@ -7,6 +7,13 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField]
     private GameObject escMenu;
+    [SerializeField]
+    private SoundManager soundManager;
+
+    public void Start()
+    {
+        soundManager.PlayMusic("bgm_1");
+    }
 
     public void ToggleQuitMenu()
     {
