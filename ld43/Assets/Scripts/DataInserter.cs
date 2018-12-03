@@ -14,7 +14,7 @@ public class DataInserter {
     
     //This functions references the url of the database and runs the php file
     //assigning num1 and num2 into the php file's variables num1 and num2
-    public void InsertIntoTable(int key, int value)
+    public IEnumerator InsertIntoTable(int key, int value)
     {
         WWWForm ww = new WWWForm();
         ww.AddField("key", key);
@@ -24,6 +24,7 @@ public class DataInserter {
         {
             Debug.Log("Failed to Send");
         }
+        yield return db;
         Debug.Log("Inserted " + key + "," + value);
     }
     public void SetUrl(string ur)

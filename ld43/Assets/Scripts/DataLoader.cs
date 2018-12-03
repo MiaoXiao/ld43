@@ -41,10 +41,7 @@ public class DataLoader : MonoBehaviour {
             results = data.text.Split(';');
             Array.Resize(ref results, results.Length - 1);
 
-            foreach (string s in results)
-            {
-                print(s);
-            }
+
             SortDescending();
         }
         
@@ -61,16 +58,10 @@ public class DataLoader : MonoBehaviour {
             temp.value = Int32.Parse(tempstring[1]);
             st.Add(temp);
         }
-        foreach (Statistic c in st)
-        {
-            print(c.key + ", " + c.value);
-        }
+
         sorted = st.OrderByDescending(o => o.value).ToList();
         print("\n");
-        foreach (Statistic c in sorted)
-        {
-            print(c.key + ", " + c.value);
-        }
+
 
     }
     public IEnumerator Read()

@@ -21,17 +21,14 @@ public class Networking : MonoBehaviour {
         writer.SetUrl(writeurl);
         reader.SetUrl(readurl);
 
-        Statistic player;
-        player.key = 1;
-        player.value = 0;
-        SendPairToServer(player);
+        
         StartCoroutine(DisplayResults());
 
 	}
-
-    void SendPairToServer(Statistic statistic)
+    public void SendPairToServer(int key, int value)
     {
-        writer.InsertIntoTable(statistic.key, statistic.value);
+        StartCoroutine(writer.InsertIntoTable(key, value));
+        Debug.Log("Write complete");
     }
 
     IEnumerator GetAllStatisticsFromServerOrdered()
@@ -83,6 +80,12 @@ public class Networking : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		
+		if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Statistic i;
+            i.key = 3;
+            i.value = 1;
+            SendPairToServer(i.key, i.value);
+        }
 	}
 }
