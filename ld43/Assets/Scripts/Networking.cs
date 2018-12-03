@@ -20,6 +20,11 @@ public class Networking : MonoBehaviour {
         reader = this.GetComponent<DataLoader>();
         writer.SetUrl(writeurl);
         reader.SetUrl(readurl);
+
+        Statistic player;
+        player.key = 1;
+        player.value = 0;
+        SendPairToServer(player);
         StartCoroutine(DisplayResults());
 
 	}
@@ -53,9 +58,22 @@ public class Networking : MonoBehaviour {
             values.text = "";
             if (d.Count != 0)
             {
+                string egg;
                 foreach (Statistic s in d)
                 {
-                    values.text += s.key + ": " + s.value + "\n";
+                    if(s.key >= 0 && s.key <= 2)
+                    {
+                        egg = "Cracked Egg";
+                    }
+                    else if(s.key >= 3 && s.key <= 6)
+                    {
+                        egg = "Purple Egg";
+                    }
+                    else
+                    {
+                        egg = "Winged Egg";
+                    }
+                    values.text += egg + ": " + s.value + "\n";
                 }
             }
         }
