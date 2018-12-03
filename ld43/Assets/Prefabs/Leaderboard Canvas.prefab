@@ -147,8 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1bb0a5e0e7ac54c84bb69c5ba88fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  writeurl: http://192.168.0.14:8080/ld43/write.php
-  readurl: http://192.168.0.14:8080/ld43/read.php
+  writeurl: http://192.168.1.2:8080/ld43/write.php
+  readurl: http://192.168.1.2:8080/ld43/read.php
   values: {fileID: 114082040622947168}
 --- !u!114 &114257181714321922
 MonoBehaviour:
