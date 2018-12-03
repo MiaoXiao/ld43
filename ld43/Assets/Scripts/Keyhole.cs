@@ -11,6 +11,7 @@ public class Keyhole : MonoBehaviour {
     [SerializeField]
     private Puzzle sourcePuzzle;
     public bool eggInserted = false;
+    public Transform insertPoint;
 
 	// Use this for initialization
 	void Start () {
