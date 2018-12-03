@@ -54,6 +54,7 @@ public class Inventory : MonoBehaviour
         InventoryItem inventoryItem = item.GetComponent<InventoryItem>();
         inventoryItem.inFrontOfPlayerObj = egg.gameObject;
         GameObject eggCopy = Instantiate(egg.gameObject);
+        Destroy(eggCopy.GetComponentInChildren<ParticleSystem>());
         eggCopy.gameObject.SetActive(true);
         eggCopy.transform.SetParent(item.transform, false);
         RecursivelySetLayer(eggCopy.transform);
