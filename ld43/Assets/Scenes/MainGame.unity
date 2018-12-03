@@ -1276,6 +1276,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114734724789541726, guid: a240b978109cbaf4c8790892d8417583,
+        type: 2}
+      propertyPath: eggId
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a240b978109cbaf4c8790892d8417583, type: 2}
   m_IsPrefabAsset: 0
@@ -1380,6 +1385,11 @@ Prefab:
     - target: {fileID: 1302326648025394, guid: e677759a98d410748aaa2e654f7b4fd3, type: 2}
       propertyPath: m_Name
       value: Cracked Egg (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114492942352051668, guid: e677759a98d410748aaa2e654f7b4fd3,
+        type: 2}
+      propertyPath: eggId
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e677759a98d410748aaa2e654f7b4fd3, type: 2}
@@ -2527,8 +2537,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 672982795}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.53, y: -45.173, z: 93.922}
-  m_LocalScale: {x: 13.095753, y: 0.51783, z: 16.49149}
+  m_LocalPosition: {x: 19.65, y: -45.691, z: 93.422}
+  m_LocalScale: {x: 15.213336, y: 0.51783, z: 16.49149}
   m_Children: []
   m_Father: {fileID: 1017068549}
   m_RootOrder: 7
@@ -2629,6 +2639,11 @@ Prefab:
     - target: {fileID: 1037328427708392, guid: a240b978109cbaf4c8790892d8417583, type: 2}
       propertyPath: m_Name
       value: Purple Egg (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114734724789541726, guid: a240b978109cbaf4c8790892d8417583,
+        type: 2}
+      propertyPath: eggId
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a240b978109cbaf4c8790892d8417583, type: 2}
@@ -3301,6 +3316,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114492942352051668, guid: e677759a98d410748aaa2e654f7b4fd3,
+        type: 2}
+      propertyPath: eggId
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e677759a98d410748aaa2e654f7b4fd3, type: 2}
   m_IsPrefabAsset: 0
@@ -3568,6 +3588,11 @@ Prefab:
     - target: {fileID: 1037328427708392, guid: a240b978109cbaf4c8790892d8417583, type: 2}
       propertyPath: m_Name
       value: Purple Egg (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114734724789541726, guid: a240b978109cbaf4c8790892d8417583,
+        type: 2}
+      propertyPath: eggId
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a240b978109cbaf4c8790892d8417583, type: 2}
@@ -3908,6 +3933,11 @@ Prefab:
     - target: {fileID: 4620300675994872, guid: ea445b86b92da0446a54b915b460cc85, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 80.064
+      objectReference: {fileID: 0}
+    - target: {fileID: 114410606571474138, guid: ea445b86b92da0446a54b915b460cc85,
+        type: 2}
+      propertyPath: eggId
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea445b86b92da0446a54b915b460cc85, type: 2}
@@ -6936,6 +6966,11 @@ Prefab:
     - target: {fileID: 1037328427708392, guid: a240b978109cbaf4c8790892d8417583, type: 2}
       propertyPath: m_Name
       value: Purple Egg (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114734724789541726, guid: a240b978109cbaf4c8790892d8417583,
+        type: 2}
+      propertyPath: eggId
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a240b978109cbaf4c8790892d8417583, type: 2}
