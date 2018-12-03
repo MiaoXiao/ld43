@@ -14,15 +14,19 @@ public class Networking : MonoBehaviour {
     List<Statistic> sortedList;
     [SerializeField]
     Text values;
-    // Use this for initialization
-	void Start () {
+
+    private void Awake()
+    {
         writer = new DataInserter();
         reader = this.GetComponent<DataLoader>();
         writer.SetUrl(writeurl);
         reader.SetUrl(readurl);
-
-        
         StartCoroutine(DisplayResults());
+    }
+
+
+    // Use this for initialization
+    void Start () {
 
 	}
     public void SendPairToServer(int key, int value)
@@ -76,16 +80,7 @@ public class Networking : MonoBehaviour {
         }
         
     }
-
-
     // Update is called once per frame
     void Update () {
-		if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Statistic i;
-            i.key = 3;
-            i.value = 1;
-            SendPairToServer(i.key, i.value);
-        }
 	}
 }
