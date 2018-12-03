@@ -28,7 +28,16 @@ public class Egg : MonoBehaviour
         //If egg can fit into keyhole, it will teleport onto it.
         if(keyhole.InsertEgg(this))
         {
-            transform.position = keyhole.transform.position;
+            if(keyhole.insertPoint)
+            {
+                transform.position = keyhole.insertPoint.position;
+                transform.rotation = keyhole.insertPoint.rotation;
+            }
+            else
+            {
+                transform.position = keyhole.transform.position;
+                transform.rotation = keyhole.transform.rotation;
+            }
             sourceKeyhole = keyhole;
             return true;
         }
