@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour {
 
         if (status)
         {
+            Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0f;
         }
         else
