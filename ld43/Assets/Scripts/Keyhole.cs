@@ -9,15 +9,15 @@ public class Keyhole : MonoBehaviour {
     [SerializeField]
     private int maxSize;
     [SerializeField]
-    private Door sourceDoor;
+    private Puzzle sourcePuzzle;
     public bool eggInserted = false;
 
 	// Use this for initialization
 	void Start () {
-        sourceDoor = GetComponentInParent<Door>() != null ? GetComponentInParent<Door>() : null;
-        if(!sourceDoor)
+        sourcePuzzle = GetComponentInParent<Puzzle>() != null ? GetComponentInParent<Puzzle>() : null;
+        if(!sourcePuzzle)
         {
-            Debug.LogError(gameObject.name + " must be a child of a door!");
+            Debug.LogError(gameObject.name + " must be a child of a puzzle!");
         }
 	}
 	
@@ -32,7 +32,7 @@ public class Keyhole : MonoBehaviour {
         if(!eggInserted && validateSize(egg))
         {
             eggInserted = true;
-            sourceDoor.ValidateDoor();
+            sourcePuzzle.ValidateDoor();
             return true;
         }
         else
@@ -44,7 +44,7 @@ public class Keyhole : MonoBehaviour {
     public void RemoveEgg()
     {
         eggInserted = false;
-        sourceDoor.ValidateDoor();
+        sourcePuzzle.ValidateDoor();
     }
 
     public bool validateSize(Egg egg)

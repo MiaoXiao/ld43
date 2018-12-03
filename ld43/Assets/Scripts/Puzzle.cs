@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Class for a door
-public class Door : MonoBehaviour {
+//Class for a puzzle and its conditions
+public class Puzzle : MonoBehaviour {
 
     public List<Keyhole> keyholes;
     public List<SlidingObject> doors;
