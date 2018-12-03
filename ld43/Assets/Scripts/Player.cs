@@ -42,18 +42,7 @@ public class Player : MonoBehaviour
                 {
                     if (hitObject.GetComponent<Keyhole>().validateSize(playerInventory.currentlySelected.inFrontOfPlayerObj.GetComponent<Egg>()))
                     {
-                        if(playerInventory.currentlySelected.inFrontOfPlayerObj.GetComponent<Egg>().eggId == 0)
-                        {
-                            interactionText.text = "Press E to sacrifice me";
-                        }
-                        else if (playerInventory.currentlySelected.inFrontOfPlayerObj.GetComponent<Egg>().eggId == 1)
-                        {
-                            interactionText.text = "Press E to place egg";
-                        }
-                        else if (playerInventory.currentlySelected.inFrontOfPlayerObj.GetComponent<Egg>().eggId == 2)
-                        {
-                            interactionText.text = "Press E to deposit egg";
-                        }
+                        interactionText.text = "Press E to place egg";
                     }
                     else
                     {
@@ -69,7 +58,14 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab)) //open inventory
         {
-            playerInventory.ToggleInventoryStatus(GetComponent<FirstPersonController>());
+            if(playerInventory.ToggleInventoryStatus(GetComponent<FirstPersonController>()))
+            {
+                soundManager.PlaySFX("inventory_open");
+            }
+            else
+            {
+                soundManager.PlaySFX("inventory_close");
+            }
         }
         else if (Input.GetKeyDown(KeyCode.E)) //interact
         {
@@ -81,6 +77,7 @@ public class Player : MonoBehaviour
                     if (hitObject.GetComponent<Egg>().sourceKeyhole)
                         hitObject.GetComponent<Egg>().removeFromKeyHole();
                     playerInventory.AddItem(hitObject.GetComponent<Egg>());
+                    soundManager.PlaySFX("pick_up");
                     //Debug.DrawRay(rayOrigin, playerCamera.transform.forward * hit.distance, Color.white);
                     //Debug.Log("Hit!");
                 }
@@ -92,10 +89,11 @@ public class Player : MonoBehaviour
                         if (playerInventory.currentlySelected.inFrontOfPlayerObj.GetComponent<Egg>().placeInKeyHole(hitObject.GetComponent<Keyhole>()))
                         {
                             playerInventory.RemoveItem(playerInventory.currentlySelected.inFrontOfPlayerObj.GetComponent<Egg>());
+                            soundManager.PlaySFX("insert_keyhole");
                         }
                         else
                         {
-                            soundManager.PlaySFX("wrong_size_sound");
+                            soundManager.PlaySFX("wrong_size");
                         }
                     }
                 }

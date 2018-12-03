@@ -11,6 +11,8 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
 
     public bool HasEgg { get { return eggVisual != null; } }
 
+    private SoundManager soundManager;
+
     public Egg eggVisual
     {
         get
@@ -34,6 +36,7 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
     {
         itemsCamera = GameObject.FindGameObjectWithTag("ItemsCamera").GetComponent<Camera>();
         inventoryUICamera = GameObject.FindGameObjectWithTag("InventoryUICamera").GetComponent<Camera>();
+        soundManager = GameObject.Find("GameManager").GetComponent<SoundManager>();
     }
 
     private void Update()
@@ -49,6 +52,7 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        soundManager.PlaySFX("menu_select");
         inventory.SelectNew(this);
         inventory.MoveArrow(transform);
     }

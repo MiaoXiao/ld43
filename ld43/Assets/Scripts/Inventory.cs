@@ -102,7 +102,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void ToggleInventoryStatus(FirstPersonController controller)
+    public bool ToggleInventoryStatus(FirstPersonController controller)
     {
         bool status = !inventoryContents.activeInHierarchy;
         inventoryContents.SetActive(status);
@@ -116,6 +116,7 @@ public class Inventory : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         else
             Cursor.lockState = CursorLockMode.Locked;
+        return status;
     }
 
     private IEnumerator WaitOneFrame()
